@@ -2,8 +2,10 @@ package com.csc;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Calculator {
+
   public int minimumfor(int[] numbers) {
     int smallest = numbers[7];
     for (int x : numbers)
@@ -54,6 +56,30 @@ public class Calculator {
   public Integer maxstream(List<Integer> numbers) {
     Integer max = numbers.stream().max(Integer::compare).get();
     return max;
+  }
+
+  public List<Integer> evenstream(List<Integer> numbers) {
+
+    List<Integer> evens = numbers.stream().filter(c -> c % 2 == 0).collect(Collectors.toList());
+    return evens;
+  }
+
+  public List<Integer> oddstream(List<Integer> numbers) {
+
+    List<Integer> odds = numbers.stream().filter(c -> c % 2 != 0).collect(Collectors.toList());
+    return odds;
+  }
+
+  public List<Integer> plus5stream(List<Integer> numbers) {
+
+    List<Integer> addfive = numbers.stream().map(n -> n + 5).collect(Collectors.toList());
+    return addfive;
+  }
+
+  public List<Integer> squarestream(List<Integer> numbers) {
+
+    List<Integer> squared = numbers.stream().map(n -> n * n).collect(Collectors.toList());
+    return squared;
   }
 
   public static void main(String[] args) {
